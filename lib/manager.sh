@@ -17,12 +17,23 @@ function taskeiro_run() {
 }
 
 function _task_run() {
+  if _task_checked "$1" ; then return ; fi
+  _task_check "$1"
   if ! _task_pass "$1" 1 ; then
     _call_task_function "$1" task_fix
     if ! _task_pass "$1" 0 ; then
       _fatal_error "Task \"$1\" failed to pass"
     fi
   fi
+}
+
+function _task_checked() {
+  _validate_task_name "$1"
+  echo "$TASKEIRO_CHECKED_TASKS" | grep "$1|" > /dev/null
+}
+
+function _task_check() {
+  export TASKEIRO_CHECKED_TASKS=$TASKEIRO_CHECKED_TASKS"$1|"
 }
 
 function _task_pass() {
