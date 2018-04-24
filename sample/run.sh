@@ -13,3 +13,5 @@ function sample_run() {
 sample_run --help
 sample_run
 sample_run --path "$MYROOT/tasks"
+sample_run --path "$MYROOT/tasks" task1 task2
+sample_run --path "$MYROOT/tasks" not_exist
