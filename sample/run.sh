@@ -11,3 +11,5 @@ function sample_run() {
 }
 
 sample_run --help
+sample_run
+sample_run --path "$MYROOT/tasks"
