@@ -1,4 +1,7 @@
+# https://misc.flogisoft.com/bash/tip_colors_and_formatting
 export FG_CYAN='\e[36m'
+export FG_LGREEN='\e[92m'
+export FG_LRED='\e[91m'
 export BG_RED='\e[41m'
 export NC='\033[0m' # No Color
 
