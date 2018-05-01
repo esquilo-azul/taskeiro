@@ -10,6 +10,10 @@ function _fatal_error() {
   exit 1
 }
 
+function _success() {
+  >&2 printf "$FG_LGREEN$1$NC\n"
+}
+
 function _infov() {
   >&2 printf "$FG_CYAN$1:$NC $2\n"
 }
