@@ -17,7 +17,11 @@ function taskeiro_run() {
 }
 
 function _task_run() {
-  if _task_checked "$1" ; then return ; fi
+  _debug "START $1"
+  if _task_checked "$1" ; then
+    _debug "END $1 (ALREADY CHECKED: $TASKEIRO_CHECKED_TASKS)"
+    return
+  fi
   _task_check "$1"
   if ! _task_pass "$1" 1 ; then
     _call_task_function "$1" task_fix
@@ -25,6 +29,7 @@ function _task_run() {
       _fatal_error "Task \"$1\" failed to pass"
     fi
   fi
+  _debug "END $1"
 }
 
 function _task_checked() {
@@ -33,6 +38,7 @@ function _task_checked() {
 }
 
 function _task_check() {
+  _debug "CHECK $1"
   export TASKEIRO_CHECKED_TASKS=$TASKEIRO_CHECKED_TASKS"$1|"
 }
 
