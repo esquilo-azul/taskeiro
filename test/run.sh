@@ -44,4 +44,10 @@ function test_task_not_exists() {
 }
 run_test 'test_task_not_exists'
 
+function test_dependencies() {
+  assert_success '"$TASKEIRO" --path "$MYROOT/tasks" dep1 task1'
+  assert_equal '|task1|dep2|dep1|' "$(cat "$EVENTS_FILE")"
+}
+run_test 'test_dependencies'
+
 tests_end

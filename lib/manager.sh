@@ -23,6 +23,10 @@ function _task_run() {
     return
   fi
   _task_check "$1"
+  for dep in $(_call_task_function "$1" task_dependencies 1); do
+    _debug "DEPENDENCY $1 -> $dep"
+    _task_run "$dep"
+  done
   if ! _task_pass "$1" 1 ; then
     _call_task_function "$1" task_fix
     if ! _task_pass "$1" 0 ; then
@@ -64,6 +68,7 @@ function _task_message_condition {
   if [ "$3" == '0' ]; then
     m=$m' (AFTER FIX)'
   fi
+  m=$m" $FG_LYELLOW[$(_call_task_function "$1" task_dependencies 1)]$NC"
   _infov "$1" "$m"
 }
 
@@ -71,11 +76,15 @@ function _call_task_function {
   local task=$1
   local script=$(taskeiro_task_path "$task")
   local function_name=$2
+  local required='0'
+  if [ $# -ge 3 ]; then
+    required=$3
+  fi
   unset -f $function_name
   source "$script"
   if _function_exists "$function_name"; then
     "$function_name"
-  else
+  elif [ "$required" == '0' ]; then
     _fatal_error "Function \"$function_name\" not found for task \"$task\""
   fi
 }
