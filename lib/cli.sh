@@ -7,7 +7,7 @@ function taskeiro_read_args() {
       exit 0
       ;;
       -p|--path)
-      TASKEIRO_PATH=$(readlink -f "$2")
+      TASKEIRO_PATH="$2"
       shift
       ;;
       *)
@@ -35,9 +35,6 @@ function taskeiro_start_banner() {
 }
 
 function taskeiro_validate() {
-  if [ ! -d "$TASKEIRO_PATH" ]; then
-    _fatal_error "TASKEIRO_PATH \"$TASKEIRO_PATH\" is not a directory."
-  fi
   printf "$TASKEIRO_TASKS" | while read TASK; do
      _validate_task_name "$TASK"
     local task_path=$(taskeiro_task_path "$TASK")

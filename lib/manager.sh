@@ -1,5 +1,14 @@
 function taskeiro_task_path() {
-  echo "$TASKEIRO_PATH/$1.sh"
+  IFS=:
+  for p in $TASKEIRO_PATH; do
+    TARGET_PATH="$p/$1.sh"
+    if [ -f "$TARGET_PATH" ]; then
+      echo "$TARGET_PATH"
+      exit 0
+    fi
+  done
+  >&2 echo "Task file not found for name \"$1\""
+  exit 1
 }
 
 function _validate_task_name() {
