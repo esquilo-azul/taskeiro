@@ -1,3 +1,5 @@
+source "$TASKEIRO_ROOT/lib/manager/dependencies.sh"
+
 function taskeiro_before_run() {
   IFS=:
   for p in $TASKEIRO_PATH; do
@@ -42,7 +44,7 @@ function _task_run() {
     return
   fi
   _task_check "$1"
-  for dep in $(_call_task_function "$1" task_dependencies 1); do
+  for dep in $(taskeiro_task_dependencies "$1"); do
     _debug "DEPENDENCY $1 -> $dep"
     _task_run "$dep"
   done
@@ -87,7 +89,7 @@ function _task_message_condition {
   if [ "$3" == '0' ]; then
     m=$m' (AFTER FIX)'
   fi
-  m=$m" $FG_LYELLOW[$(_call_task_function "$1" task_dependencies 1)]$NC"
+  m=$m" $FG_LYELLOW[$(taskeiro_task_dependencies "$1")]$NC"
   _infov "$1" "$m"
 }
 
