@@ -61,4 +61,20 @@ function test_before_run() {
 }
 run_test 'test_before_run'
 
+function test_hash() {
+  hash_init 'myhash'
+  assert_equal '' "$myhash"
+  assert_equal '' "$(hash_get k1)"
+  hash_put 'myhash' 'k1' 'v1'
+  assert_equal 'k1:v1' "$myhash"
+  assert_equal 'v1' "$(hash_get myhash k1)"
+  hash_put 'myhash' 'k2' 'v2'
+  assert_equal 'k1:v1|k2:v2' "$myhash"
+  assert_equal 'v2' "$(hash_get myhash k2)"
+  hash_put 'myhash' 'k1' 'v3'
+  assert_equal 'k1:v3|k2:v2' "$myhash"
+  assert_equal 'v3' "$(hash_get myhash k1)"
+}
+run_test 'test_hash'
+
 tests_end
