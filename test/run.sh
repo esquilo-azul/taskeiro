@@ -16,7 +16,7 @@ function test_help() {
 run_test 'test_help'
 
 function test_no_args() {
-  assert_error_message '"$TASKEIRO"' 'TASKEIRO_PATH.\+not a directory'
+  assert_error_message '"$TASKEIRO"' "TASKEIRO_PATH is empty"
 }
 run_test 'test_no_args'
 
@@ -52,7 +52,7 @@ run_test 'test_dependencies'
 
 function test_multiple_task_directories() {
   assert_success '"$TASKEIRO" --path "$MYROOT/tasks:$MYROOT/tasks2" dep3'
-  assert_equal '|task1|dep2|dep3|' "$(cat "$EVENTS_FILE")"
+  assert_equal '|task1|dep3|' "$(cat "$EVENTS_FILE")"
 }
 run_test 'test_multiple_task_directories'
 

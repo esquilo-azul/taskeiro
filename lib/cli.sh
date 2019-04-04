@@ -35,6 +35,9 @@ function taskeiro_start_banner() {
 }
 
 function taskeiro_validate() {
+  if [ -z "$TASKEIRO_PATH" ]; then
+    _fatal_error "TASKEIRO_PATH is empty"
+  fi
   printf "$TASKEIRO_TASKS" | while read TASK; do
      _validate_task_name "$TASK"
     local task_path=$(taskeiro_task_path "$TASK")
