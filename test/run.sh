@@ -77,4 +77,14 @@ function test_hash() {
 }
 run_test 'test_hash'
 
+function test_dependencies() {
+  assert_success '"$TASKEIRO" --path "$MYROOT/tasks" task1'
+  assert_equal '|task1|' "$(cat "$EVENTS_FILE")"
+
+  events_reset
+  assert_success '"$TASKEIRO" --path "$MYROOT/tasks:$MYROOT/tasks_with_dependencies" task1'
+  assert_equal '|twd1|task1|' "$(cat "$EVENTS_FILE")"
+}
+run_test 'test_dependencies'
+
 tests_end
