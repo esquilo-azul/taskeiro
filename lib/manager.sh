@@ -1,3 +1,13 @@
+function taskeiro_before_run() {
+  IFS=:
+  for p in $TASKEIRO_PATH; do
+    BEFORE_RUN_PATH="$p/_before_run.sh"
+    if [ -f "$BEFORE_RUN_PATH" ]; then
+      source "$BEFORE_RUN_PATH"
+    fi
+  done
+}
+
 function taskeiro_task_path() {
   IFS=:
   for p in $TASKEIRO_PATH; do

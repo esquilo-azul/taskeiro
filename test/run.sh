@@ -56,4 +56,9 @@ function test_multiple_task_directories() {
 }
 run_test 'test_multiple_task_directories'
 
+function test_before_run() {
+  assert_success '"$TASKEIRO" --path "$MYROOT/tasks" before_run_task'
+}
+run_test 'test_before_run'
+
 tests_end
