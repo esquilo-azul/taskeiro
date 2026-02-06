@@ -79,6 +79,15 @@ function _task_check() {
 }
 
 function _task_pass() {
+  if _call_task_function "$1" task_condition ; then
+    RESULT=0
+  else
+    RESULT=1
+  fi
+  _task_message_condition "$1" "$RESULT" "$2"
+  return $RESULT
+}
+
 function _taskeiro_path_callback() {
   SUBPATH="$1"
   local IFS=:
@@ -88,14 +97,6 @@ function _taskeiro_path_callback() {
       source "$BEFORE_RUN_PATH"
     fi
   done
-}
-  if _call_task_function "$1" task_condition ; then
-    RESULT=0
-  else
-    RESULT=1
-  fi
-  _task_message_condition "$1" "$RESULT" "$2"
-  return $RESULT
 }
 
 function _task_message_condition {
