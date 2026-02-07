@@ -10,11 +10,11 @@ function taskeiro_task_path() {
     TARGET_PATH="$p/$1.sh"
     if [ -f "$TARGET_PATH" ]; then
       echo "$TARGET_PATH"
-      exit 0
+      return 0
     fi
   done
   >&2 echo "Task file not found for name \"$1\""
-  exit 1
+  return 1
 }
 
 function _taskeiro_path_callback() {
