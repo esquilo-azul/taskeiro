@@ -7,7 +7,7 @@ function tests_end() {
   _infov "Success" $SUCCESS
   _infov "Failed" $FAIL
   if [ $FAIL -gt 0 ]; then
-    _fatal_error 'Tests failed'
+    fatal_error 'Tests failed'
   else
     _success 'Tests passed'
   fi

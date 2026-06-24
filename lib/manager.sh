@@ -35,7 +35,7 @@ function _taskeiro_path_callback() {
 
 function _validate_task_name() {
   if ! _task_valid_name "$1"; then
-    _fatal_error "Invalid task name: \"$1\""
+    fatal_error "Invalid task name: \"$1\""
   fi
 }
 
@@ -62,7 +62,7 @@ function _task_run() {
   if ! _task_pass "$1" 1 ; then
     _call_task_function "$1" task_fix
     if ! _task_pass "$1" 0 ; then
-      _fatal_error "Task \"$1\" failed to pass"
+      fatal_error "Task \"$1\" failed to pass"
     fi
   fi
   _debug "END $1"
@@ -128,7 +128,7 @@ function _call_task_function {
   if _function_exists "$function_name"; then
     "$function_name"
   elif [ "$required" == '0' ]; then
-    _fatal_error "Function \"$function_name\" not found for task \"$task\""
+    fatal_error "Function \"$function_name\" not found for task \"$task\""
   fi
 }
 
