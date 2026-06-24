@@ -9,6 +9,9 @@ done
 export TASKEIRO_BIN="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 export TASKEIRO_ROOT="$(dirname "$TASKEIRO_BIN")"
 
+export ERROR_EACBASHLIB_NOT_FOUND=1
+export EACBASHLIB_SOURCE_URL='https://github.com/esquilo-azul/eac-bash-lib'
+
 function taskeiro() {
   source "${TASKEIRO_ROOT}/init.sh"
 
@@ -19,6 +22,18 @@ function taskeiro() {
   taskeiro_run
 }
 export -f taskeiro
+
+if [[ ! -v 'EACBASHLIB_ROOT' ]]; then
+  export EACBASHLIB_ROOT="$(dirname "$PROGRAMEIRO_ROOT_ROOT")/eac-bash-lib"
+fi
+export EACBASHLIB_RC="${EACBASHLIB_ROOT}/init.sh"
+
+if [[ ! -f "$EACBASHLIB_RC" ]]; then
+  >&2 printf "%s\n" "\"$EACBASHLIB_RC\" not found."
+  >&2 printf "%s %s\n" "You need to have a copy of ${EACBASHLIB_SOURCE_URL} in"
+    "\"$EACBASHLIB_ROOT\" or in directory pointed by \$EACBASHLIB_ROOT." \
+  exit $ERROR_EACBASHLIB_NOT_FOUND
+fi
 
 if [[ ${BASH_SOURCE[0]} == $0 ]]; then
   taskeiro "${@}"
