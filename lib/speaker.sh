@@ -5,28 +5,12 @@ export FG_LYELLOW='\e[93m'
 export FG_LBLUE='\e[94m'
 export NC='\033[0m' # No Color
 
-function _outerr() {
-  local first=1
-  for value in "$@"; do
-    if [ -n "$first" ]; then
-      first=''
-    else
-      _outerr_single ' '
-    fi
-    _outerr_single "$value"
-  done
-}
-
-function _outerr_single() {
-  >&2 printf -- '%b' "$1"
-}
-
 function _success() {
-  _outerr "${FG_LGREEN}" "$@" "${NC}\n"
+  outerr "${FG_LGREEN}" "$@" "${NC}\n"
 }
 
 function _debug() {
   if [ -n "$TASKEIRO_DEBUG" ]; then
-    _outerr "${FG_LBLUE}" "$@" "${NC}\n"
+    outerr "${FG_LBLUE}" "$@" "${NC}\n"
   fi
 }
