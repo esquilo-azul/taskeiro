@@ -21,9 +21,3 @@ function taskeiro_add_dependency() {
     _extra_dependencies_add "$TARGET" "$DEPENDENCY"
   done
 }
-
-function _join_by() {
-  local IFS="$1"
-  shift
-  echo "$*"
-}
