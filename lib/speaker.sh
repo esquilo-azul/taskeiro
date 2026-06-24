@@ -3,7 +3,6 @@ export FG_LGREEN='\e[92m'
 export FG_LRED='\e[91m'
 export FG_LYELLOW='\e[93m'
 export FG_LBLUE='\e[94m'
-export NC='\033[0m' # No Color
 
 function _debug() {
   if [ -n "$TASKEIRO_DEBUG" ]; then
