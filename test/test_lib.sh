@@ -4,8 +4,8 @@ function tests_init() {
 }
 
 function tests_end() {
-  _infov "Success" $SUCCESS
-  _infov "Failed" $FAIL
+  infov "Success" $SUCCESS
+  infov "Failed" $FAIL
   if [ $FAIL -gt 0 ]; then
     fatal_error 'Tests failed'
   else

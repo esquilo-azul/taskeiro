@@ -1,5 +1,4 @@
 # https://misc.flogisoft.com/bash/tip_colors_and_formatting
-export FG_CYAN='\e[36m'
 export FG_LGREEN='\e[92m'
 export FG_LRED='\e[91m'
 export FG_LYELLOW='\e[93m'
@@ -24,12 +23,6 @@ function _outerr_single() {
 
 function _success() {
   _outerr "${FG_LGREEN}" "$@" "${NC}\n"
-}
-
-function _infov() {
-  local LABEL="$1"
-  shift
-  _outerr "${FG_CYAN}" "${LABEL}:" "${NC}" "$@" "\n"
 }
 
 function _debug() {

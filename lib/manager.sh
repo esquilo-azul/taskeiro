@@ -112,7 +112,7 @@ function _task_message_condition {
     m=$m' (AFTER FIX)'
   fi
   m=$m" $FG_LYELLOW[$(taskeiro_task_dependencies "$1")]$NC"
-  _infov "$1" "$m"
+  infov "$1" "$m"
 }
 
 function _call_task_function {

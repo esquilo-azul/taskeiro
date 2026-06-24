@@ -29,9 +29,9 @@ EOS
 }
 
 function taskeiro_start_banner() {
-  _infov 'Path' "$TASKEIRO_PATH"
+  infov 'Path' "$TASKEIRO_PATH"
   local tasks=$(printf "$TASKEIRO_TASKS" | xargs -ILINE printf "LINE ")
-  _infov 'Tasks' "$tasks"
+  infov 'Tasks' "$tasks"
 }
 
 function taskeiro_validate() {
