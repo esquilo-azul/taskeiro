@@ -5,10 +5,6 @@ export FG_LYELLOW='\e[93m'
 export FG_LBLUE='\e[94m'
 export NC='\033[0m' # No Color
 
-function _success() {
-  outerr "${FG_LGREEN}" "$@" "${NC}\n"
-}
-
 function _debug() {
   if [ -n "$TASKEIRO_DEBUG" ]; then
     outerr "${FG_LBLUE}" "$@" "${NC}\n"

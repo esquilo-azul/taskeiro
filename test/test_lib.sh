@@ -9,7 +9,7 @@ function tests_end() {
   if [ $FAIL -gt 0 ]; then
     fatal_error 'Tests failed'
   else
-    _success 'Tests passed'
+    info_ok 'Tests passed'
   fi
 }
 
