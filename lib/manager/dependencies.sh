@@ -22,10 +22,6 @@ function taskeiro_add_dependency() {
   done
 }
 
-function _extra_dependencies_get() {
-  hash_get 'EXTRA_DEPENDENCIES' "$1"
-}
-
 function _join_by() {
   local IFS="$1"
   shift
