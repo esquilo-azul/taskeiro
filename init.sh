@@ -5,7 +5,6 @@ export TASKEIRO_TASKS=
 export TASKEIRO_DEBUG="${TASKEIRO_DEBUG:-}"
 export TASKEIRO_CHECKED_TASKS='|'
 
-source "$TASKEIRO_ROOT/lib/hashs.sh"
-source "$TASKEIRO_ROOT/lib/speaker.sh"
-source "$TASKEIRO_ROOT/lib/cli.sh"
-source "$TASKEIRO_ROOT/lib/manager.sh"
+for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
+  source "$file"
+done
