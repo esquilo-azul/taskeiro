@@ -19,6 +19,12 @@ function taskeiro() {
   export TASKEIRO_CHECKED_TASKS='|'
   hash_init 'EXTRA_DEPENDENCIES'
 
+  # Terminal colors
+  export FG_LGREEN='\e[92m'
+  export FG_LRED='\e[91m'
+  export FG_LYELLOW='\e[93m'
+  export FG_LBLUE='\e[94m'
+
   for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
     source "$file"
   done
