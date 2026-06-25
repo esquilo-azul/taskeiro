@@ -1,7 +1,3 @@
-function taskeiro_before_run() {
-  _taskeiro_path_callback '_before_run.sh'
-}
-
 function taskeiro_task_path() {
   local IFS=:
   for p in $TASKEIRO_PATH; do
