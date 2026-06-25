@@ -24,14 +24,3 @@ function _validate_task_name() {
 function taskeiro_run() {
   printf "$TASKEIRO_TASKS" | while read TASK; do _task_run "$TASK" ; done
 }
-
-function _taskeiro_path_callback() {
-  SUBPATH="$1"
-  local IFS=:
-  for p in $TASKEIRO_PATH; do
-    BEFORE_RUN_PATH="${p}/${SUBPATH}"
-    if [ -f "$BEFORE_RUN_PATH" ]; then
-      source "$BEFORE_RUN_PATH"
-    fi
-  done
-}
