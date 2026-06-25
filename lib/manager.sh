@@ -71,10 +71,6 @@ function _task_checked() {
   echo "$TASKEIRO_CHECKED_TASKS" | grep "|$1|" > /dev/null
 }
 
-function _task_check() {
-  _debug "CHECK $1"
-  export TASKEIRO_CHECKED_TASKS=$TASKEIRO_CHECKED_TASKS"$1|"
-}
 
 function _task_pass() {
   if _call_task_function "$1" task_condition ; then
