@@ -37,10 +37,6 @@ function _validate_task_name() {
   fi
 }
 
-function _task_valid_name() {
-  echo $1 | grep '^[a-z0-9_]\+\(/[a-z0-9_]\+\)*$' > /dev/null
-}
-
 function taskeiro_run() {
   printf "$TASKEIRO_TASKS" | while read TASK; do _task_run "$TASK" ; done
 }
