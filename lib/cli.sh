@@ -1,9 +1,3 @@
-function taskeiro_start_banner() {
-  infov 'Path' "$TASKEIRO_PATH"
-  local tasks=$(printf "$TASKEIRO_TASKS" | xargs -ILINE printf "LINE ")
-  infov 'Tasks' "$tasks"
-}
-
 function taskeiro_validate() {
   if [ -z "$TASKEIRO_PATH" ]; then
     fatal_error "TASKEIRO_PATH is empty"
