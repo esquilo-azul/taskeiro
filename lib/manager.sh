@@ -112,7 +112,3 @@ function _task_message_condition {
   m=$m" $FG_LYELLOW[$(taskeiro_task_dependencies "$1")]$NC"
   infov "$1" "$m"
 }
-
-function _function_exists() {
-  type "$1" 2> /dev/null > /dev/null
-}
