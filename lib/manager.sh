@@ -10,7 +10,3 @@ function taskeiro_task_path() {
   >&2 echo "Task file not found for name \"$1\""
   return 1
 }
-
-function taskeiro_run() {
-  printf "$TASKEIRO_TASKS" | while read TASK; do _task_run "$TASK" ; done
-}
