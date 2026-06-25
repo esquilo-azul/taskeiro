@@ -12,7 +12,16 @@ export ERROR_EACBASHLIB_NOT_FOUND=1
 export EACBASHLIB_SOURCE_URL='https://github.com/esquilo-azul/eac-bash-lib'
 
 function taskeiro() {
-  source "${TASKEIRO_ROOT}/init.sh"
+  export TASKEIRO_EXECUTER="$0"
+  export TASKEIRO_PATH=
+  export TASKEIRO_TASKS=
+  export TASKEIRO_DEBUG="${TASKEIRO_DEBUG:-}"
+  export TASKEIRO_CHECKED_TASKS='|'
+  hash_init 'EXTRA_DEPENDENCIES'
+
+  for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
+    source "$file"
+  done
 
   taskeiro_read_args "$@"
   taskeiro_start_banner
