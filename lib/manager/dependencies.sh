@@ -1,5 +1,3 @@
-hash_init 'EXTRA_DEPENDENCIES'
-
 function taskeiro_task_dependencies() {
   local EXTRA="$(_extra_dependencies_get "$1")"
   local SELF="$(_call_task_function "$1" task_dependencies 1)"

@@ -4,6 +4,7 @@ export TASKEIRO_PATH=
 export TASKEIRO_TASKS=
 export TASKEIRO_DEBUG="${TASKEIRO_DEBUG:-}"
 export TASKEIRO_CHECKED_TASKS='|'
+hash_init 'EXTRA_DEPENDENCIES'
 
 for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
   source "$file"
