@@ -18,16 +18,6 @@ function taskeiro_read_args() {
   done
 }
 
-function taskeiro_help() {
-  cat <<EOS
-Usage:
-
-  $TASKEIRO_EXECUTER -p|--path <TASKS_DIR>
-  $TASKEIRO_EXECUTER -h|--help
-EOS
-  exit 0
-}
-
 function taskeiro_start_banner() {
   infov 'Path' "$TASKEIRO_PATH"
   local tasks=$(printf "$TASKEIRO_TASKS" | xargs -ILINE printf "LINE ")
