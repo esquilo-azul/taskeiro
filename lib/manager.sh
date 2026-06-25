@@ -15,12 +15,6 @@ function taskeiro_task_path() {
   return 1
 }
 
-function _validate_task_name() {
-  if ! _task_valid_name "$1"; then
-    fatal_error "Invalid task name: \"$1\""
-  fi
-}
-
 function taskeiro_run() {
   printf "$TASKEIRO_TASKS" | while read TASK; do _task_run "$TASK" ; done
 }
