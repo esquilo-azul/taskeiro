@@ -6,8 +6,7 @@ while [ -h "$SOURCE" ]; do
   SOURCE="$(readlink "$SOURCE")"
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
-export TASKEIRO_BIN="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
-export TASKEIRO_ROOT="$(dirname "$TASKEIRO_BIN")"
+export TASKEIRO_ROOT="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 export ERROR_EACBASHLIB_NOT_FOUND=1
 export EACBASHLIB_SOURCE_URL='https://github.com/esquilo-azul/eac-bash-lib'
