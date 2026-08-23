@@ -27,10 +27,6 @@ function taskeiro() {
   export FG_LYELLOW='\e[93m'
   export FG_LBLUE='\e[94m'
 
-  for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
-    source "$file"
-  done
-
   taskeiro_read_args "$@"
   taskeiro_start_banner
   taskeiro_validate
@@ -50,6 +46,10 @@ if [[ ! -f "$EACBASHLIB_RC" ]]; then
     "\"$EACBASHLIB_ROOT\" or in directory pointed by \$EACBASHLIB_ROOT." \
   exit $ERROR_EACBASHLIB_NOT_FOUND
 fi
+
+for file in "${TASKEIRO_ROOT}/lib/"*.sh; do
+  source "$file"
+done
 
 if [[ ${BASH_SOURCE[0]} == $0 ]]; then
   taskeiro "${@}"
