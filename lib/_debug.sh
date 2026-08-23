@@ -3,3 +3,4 @@ function _debug() {
     outerr "${FG_LBLUE}" "$@" "${NC}\n"
   fi
 }
+export -f _debug

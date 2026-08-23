@@ -10,3 +10,4 @@ function taskeiro_validate() {
     fi
   done
 }
+export -f taskeiro_validate

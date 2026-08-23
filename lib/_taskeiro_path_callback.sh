@@ -9,3 +9,4 @@ function _taskeiro_path_callback() {
 
   _debug "END _taskeiro_path_callback()" "$@"
 }
+export -f _taskeiro_path_callback

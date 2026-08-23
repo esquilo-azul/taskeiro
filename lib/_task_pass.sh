@@ -7,3 +7,4 @@ function _task_pass() {
   _task_message_condition "$1" "$RESULT" "$2"
   return $RESULT
 }
+export -f _task_pass

@@ -10,3 +10,4 @@ function _extra_dependencies_add() {
 
   hash_put 'EXTRA_DEPENDENCIES' "$TARGET" "$VALUE"
 }
+export -f _extra_dependencies_add

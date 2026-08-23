@@ -11,3 +11,4 @@ function taskeiro_task_dependencies() {
     echo ''
   fi
 }
+export -f taskeiro_task_dependencies

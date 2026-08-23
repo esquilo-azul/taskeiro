@@ -5,3 +5,4 @@ function taskeiro_add_dependency() {
     _extra_dependencies_add "$TARGET" "$DEPENDENCY"
   done
 }
+export -f taskeiro_add_dependency

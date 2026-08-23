@@ -18,3 +18,4 @@ function _task_run() {
   fi
   _debug "END $1"
 }
+export -f _task_run

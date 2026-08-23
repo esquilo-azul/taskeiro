@@ -3,3 +3,4 @@ function _validate_task_name() {
     fatal_error "Invalid task name: \"$1\""
   fi
 }
+export -f _validate_task_name

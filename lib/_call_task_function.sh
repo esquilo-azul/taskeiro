@@ -14,3 +14,4 @@ function _call_task_function {
     fatal_error "Function \"$function_name\" not found for task \"$task\""
   fi
 }
+export -f _call_task_function
