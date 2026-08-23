@@ -6,7 +6,7 @@ function taskeiro_validate() {
      _validate_task_name "$TASK"
     local task_path=$(taskeiro_task_path "$TASK")
     if [ ! -f "$task_path" ]; then
-      fatal_error "Task file \"$task_path\" not found"
+      fatal_error "No file found for task \"$TASK\""
     fi
   done
 }
