@@ -11,7 +11,7 @@ function _task_run() {
   done
   _taskeiro_path_callback '_before_task.sh'
   if ! _task_pass "$1" 1 ; then
-    _call_task_function "$1" task_fix
+    taskeiro_task_call_function "$1" task_fix
     if ! _task_pass "$1" 0 ; then
       fatal_error "Task \"$1\" failed to pass"
     fi

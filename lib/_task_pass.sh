@@ -1,5 +1,5 @@
 function _task_pass() {
-  if _call_task_function "$1" task_condition ; then
+  if taskeiro_task_call_function "$1" task_condition ; then
     RESULT=0
   else
     RESULT=1

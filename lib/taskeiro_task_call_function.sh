@@ -1,4 +1,4 @@
-function _call_task_function {
+function taskeiro_task_call_function {
   local task=$1
   local script=$(taskeiro_task_path "$task")
   local function_name=$2
@@ -14,4 +14,4 @@ function _call_task_function {
     fatal_error "Function \"$function_name\" not found for task \"$task\""
   fi
 }
-export -f _call_task_function
+export -f taskeiro_task_call_function
