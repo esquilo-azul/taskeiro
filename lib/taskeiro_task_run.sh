@@ -1,4 +1,4 @@
-function _task_run() {
+function taskeiro_task_run() {
   taskeiro_debug "START $1"
   if taskeiro_task_checked "$1" ; then
     taskeiro_debug "END $1 (ALREADY CHECKED: $TASKEIRO_CHECKED_TASKS)"
@@ -7,7 +7,7 @@ function _task_run() {
   taskeiro_task_check "$1"
   for dep in $(taskeiro_task_dependencies "$1"); do
     taskeiro_debug "DEPENDENCY $1 -> $dep"
-    _task_run "$dep"
+    taskeiro_task_run "$dep"
   done
   _taskeiro_path_callback '_before_task.sh'
   if ! taskeiro_task_pass "$1" 1 ; then
@@ -18,4 +18,4 @@ function _task_run() {
   fi
   taskeiro_debug "END $1"
 }
-export -f _task_run
+export -f taskeiro_task_run
