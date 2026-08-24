@@ -8,7 +8,7 @@ function taskeiro_task_call_function {
   fi
   unset -f $function_name
   source "$script"
-  if _function_exists "$function_name"; then
+  if taskeiro_function_exists "$function_name"; then
     "$function_name"
   elif [ "$required" == '0' ]; then
     fatal_error "Function \"$function_name\" not found for task \"$task\""
