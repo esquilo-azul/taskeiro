@@ -1,4 +1,4 @@
-function _extra_dependencies_add() {
+function taskeiro_dependencies_extra_add() {
   local TARGET="$1"
   local DEPENDENCY="$2"
 
@@ -10,4 +10,4 @@ function _extra_dependencies_add() {
 
   hash_put 'EXTRA_DEPENDENCIES' "$TARGET" "$VALUE"
 }
-export -f _extra_dependencies_add
+export -f taskeiro_dependencies_extra_add
