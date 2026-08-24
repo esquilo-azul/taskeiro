@@ -9,7 +9,7 @@ function taskeiro_task_run() {
     taskeiro_debug "DEPENDENCY $1 -> $dep"
     taskeiro_task_run "$dep"
   done
-  _taskeiro_path_callback '_before_task.sh'
+  taskeiro_path_callback '_before_task.sh'
   if ! taskeiro_task_pass "$1" 1 ; then
     taskeiro_task_call_function "$1" task_fix
     if ! taskeiro_task_pass "$1" 0 ; then
