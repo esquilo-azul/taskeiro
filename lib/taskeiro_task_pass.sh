@@ -1,4 +1,4 @@
-function _task_pass() {
+function taskeiro_task_pass() {
   if taskeiro_task_call_function "$1" task_condition ; then
     RESULT=0
   else
@@ -7,4 +7,4 @@ function _task_pass() {
   taskeiro_task_message_condition "$1" "$RESULT" "$2"
   return $RESULT
 }
-export -f _task_pass
+export -f taskeiro_task_pass
