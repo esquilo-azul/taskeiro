@@ -1,6 +1,6 @@
 function _task_run() {
   taskeiro_debug "START $1"
-  if _task_checked "$1" ; then
+  if taskeiro_task_checked "$1" ; then
     taskeiro_debug "END $1 (ALREADY CHECKED: $TASKEIRO_CHECKED_TASKS)"
     return
   fi
