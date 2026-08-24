@@ -4,7 +4,7 @@ function _task_pass() {
   else
     RESULT=1
   fi
-  _task_message_condition "$1" "$RESULT" "$2"
+  taskeiro_task_message_condition "$1" "$RESULT" "$2"
   return $RESULT
 }
 export -f _task_pass
